@@ -166,5 +166,6 @@ ppt/
 
 tmp.*
 tmp/
-
-thesis/
+test.*
+test/
+*.ipynb
