@@ -3,18 +3,42 @@ Config:
   start: 2015-01-03
   end: 2019-09-01
   company: ADBE
+
 GPR:
   kernel:
+    type: "DotProduct"  # DotProduct
     constant: 63.0
-    length_scale: 1
-    length_scale_bounds:
-      - 1.0e-2
-      - 100.0
+    # RBF kernel 参数
+    rbf_params:
+      length_scale: 1
+      length_scale_bounds:
+        - 1.0e-2
+        - 100.0
+    # DotProduct kernel 参数
+    dotproduct_params:
+      sigma_0: 0.1
+      sigma_0_bounds:
+        - 1.0e-4  # 降低下界
+        - 100.0
   alpha: 1.0e-6
-  n_restarts_optimizer: 6
+  n_restarts_optimizer: 6  # 增加重启次数
   normalize_y: True
+
+BayesRidge:
+  alpha_1: 0.1
+  alpha_2: 0.1
+  lambda_1: 0.1
+  lambda_2: 0.1
+  fit_intercept: True
+  copy_X: True
+  tol: 0.001
+  max_iter: 300
+
 Train:
   dev_size: 0.2
+
 Test:
   start: 2019-09-02
   end: 2020-04-01
+
+
