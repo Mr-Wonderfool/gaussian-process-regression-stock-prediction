@@ -6,7 +6,6 @@ import numpy as np
 
 
 class Plotter:
-    # Corrected the typo from 'color_palatte' to 'color_palette'
     color_palette = sns.color_palette("muted")
 
     def __init__(self):

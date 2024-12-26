@@ -1,5 +1,5 @@
 # train.py
-
+import os
 from models.gpr import GPR
 from models.bayes_ridge import BayesRidgeModel
 import matplotlib.pyplot as plt
@@ -25,20 +25,20 @@ if __name__ == "__main__":
     (fig_test_bayes, ax_test_bayes), test_mse_bayes = bayes_ridge.predict(test_data_path)
 
     # Save plots for GPR
-    fig_train_gpr.savefig("train_prediction_gpr.png", dpi=300)
-    fig_dev_gpr.savefig("dev_prediction_gpr.png", dpi=300)
-    fig_test_gpr.savefig("test_prediction_gpr.png", dpi=300)
-    print("GPR Plots saved to files with dpi=300.")
+    os.makedirs("images/", exist_ok=True)
+    fig_train_gpr.savefig("images/train_prediction_gpr.png", dpi=300)
+    fig_dev_gpr.savefig("images/dev_prediction_gpr.png", dpi=300)
+    fig_test_gpr.savefig("images/test_prediction_gpr.png", dpi=300)
+    print("GPR Plots saved to images/")
 
     # Save plots for BayesRidge
-    fig_train_bayes.savefig("train_prediction_bayes_ridge.png", dpi=300)
-    fig_dev_bayes.savefig("dev_prediction_bayes_ridge.png", dpi=300)
-    fig_test_bayes.savefig("test_prediction_bayes_ridge.png", dpi=300)
-    print("BayesRidge Plots saved to files with dpi=300.")
+    fig_train_bayes.savefig("images/train_prediction_bayes_ridge.png", dpi=300)
+    fig_dev_bayes.savefig("images/dev_prediction_bayes_ridge.png", dpi=300)
+    fig_test_bayes.savefig("images/test_prediction_bayes_ridge.png", dpi=300)
+    print("BayesRidge Plots saved to images/")
 
     # Display all plots
     plt.show()
-    print("Plots displayed.")
 
     # Print MSE for GPR
     print("GPR Model Performance:")

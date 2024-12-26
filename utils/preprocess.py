@@ -7,7 +7,6 @@ class Config():
         self.config = self._load_yaml()
     
     def _load_yaml(self):
-        # 显式指定编码为 'utf-8'，防止编码错误
         with open(self.path, 'r', encoding='utf-8') as file:
             return yaml.safe_load(file)
     

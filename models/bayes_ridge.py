@@ -50,16 +50,7 @@ class BayesRidgeModel:
 
         # Initialize BayesianRidge with config parameters
         bayes_params = self.config[self._field].copy()
-        self.model = BayesianRidge(
-            alpha_1=bayes_params.pop('alpha_1', 1e-6),
-            alpha_2=bayes_params.pop('alpha_2', 1e-6),
-            lambda_1=bayes_params.pop('lambda_1', 1e-6),
-            lambda_2=bayes_params.pop('lambda_2', 1e-6),
-            fit_intercept=bayes_params.pop('fit_intercept', True),
-            copy_X=bayes_params.pop('copy_X', True),
-            tol=bayes_params.pop('tol', 1e-3),
-            max_iter=bayes_params.pop('max_iter', 300)
-        )
+        self.model = BayesianRidge(**bayes_params)
 
     @classmethod
     def rescale_std(cls, delta_std):

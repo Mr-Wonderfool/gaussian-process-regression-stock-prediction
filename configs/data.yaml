@@ -6,7 +6,7 @@ Config:
 
 GPR:
   kernel:
-    type: "DotProduct"  # DotProduct
+    type: "RBF"
     constant: 63.0
     # RBF kernel 参数
     rbf_params:
@@ -22,7 +22,7 @@ GPR:
         - 100.0
   alpha: 1.0e-6
   n_restarts_optimizer: 6  # 增加重启次数
-  normalize_y: True
+  normalize_y: False
 
 BayesRidge:
   alpha_1: 0.1
